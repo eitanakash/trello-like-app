@@ -1,0 +1,185 @@
+<div>
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Search by title" [(ngModel)]="title" />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="searchTitle()">
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Backlog -->
+  <h4>Backlog</h4>
+  <div *ngFor="let ticket of tickets; let i = index">
+    <div>
+
+      <div *ngIf="ticket && ticket.boardType === 1">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <div>
+              <label><strong>Title:</strong></label> {{ ticket.title }}
+            </div>
+            <div>
+              <label><strong>Description:</strong></label>
+              {{ ticket.description }}
+            </div>
+            <div>
+              <label><strong>members:</strong></label>
+              <div *ngFor="let member of ticket.members; let i = index">
+                {{member}}
+              </div>
+
+              <button class="m-3 btn btn-sm" (click)="ticketNextStep(ticket)">
+                Next Step
+              </button>
+
+              <button class="m-3 btn btn-sm btn-danger" (click)="deleteTicket(ticket)">
+                Delete ticket
+              </button>
+              <a class="badge" routerLink="/ticket/{{ ticket._id }}">
+                Edit
+              </a>
+
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dev -->
+  <div>
+    <h4>Dev</h4>
+    <div *ngFor="let ticket of tickets; let i = index">
+      <div>
+
+        <div *ngIf="ticket && ticket.boardType === 2">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div>
+                <label><strong>Title:</strong></label> {{ ticket.title }}
+              </div>
+              <div>
+                <label><strong>Description:</strong></label>
+                {{ ticket.description }}
+              </div>
+              <div>
+                <label><strong>members:</strong></label>
+                <div *ngFor="let member of ticket.members; let i = index">
+                  {{member}}
+                </div>
+
+                <button class="m-3 btn btn-sm" (click)="ticketPreviousStep(ticket)">
+                  Previous Step
+                </button>
+
+                <button class="m-3 btn btn-sm" (click)="ticketNextStep(ticket)">
+                  Next Step
+                </button>
+
+                <button class="m-3 btn btn-sm btn-danger" (click)="deleteTicket(ticket)">
+                  Delete ticket
+                </button>
+                <a class="badge" routerLink="/ticket/{{ ticket._id }}">
+                  Edit
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- In Progress -->
+  <div>
+    <h4>In Progress</h4>
+    <div *ngFor="let ticket of tickets; let i = index">
+      <div>
+
+        <div *ngIf="ticket && ticket.boardType === 3">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div>
+                <label><strong>Title:</strong></label> {{ ticket.title }}
+              </div>
+              <div>
+                <label><strong>Description:</strong></label>
+                {{ ticket.description }}
+              </div>
+              <div>
+                <label><strong>members:</strong></label>
+                <div *ngFor="let member of ticket.members; let i = index">
+                  {{member}}
+                </div>
+
+                <button class="m-3 btn btn-sm" (click)="ticketPreviousStep(ticket)">
+                  Previous Step
+                </button>
+
+                <button class="m-3 btn btn-sm" (click)="ticketNextStep(ticket)">
+                  Next Step
+                </button>
+
+                <button class="m-3 btn btn-sm btn-danger" (click)="deleteTicket(ticket)">
+                  Delete ticket
+                </button>
+                <a class="badge" routerLink="/ticket/{{ ticket._id }}">
+                  Edit
+                </a>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Done -->
+  <div>
+    <h4>Done (:</h4>
+    <div *ngFor="let ticket of tickets; let i = index">
+      <div>
+
+        <div *ngIf="ticket && ticket.boardType === 4">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div>
+                <label><strong>Title:</strong></label> {{ ticket.title }}
+              </div>
+              <div>
+                <label><strong>Description:</strong></label>
+                {{ ticket.description }}
+              </div>
+              <div>
+                <label><strong>members:</strong></label>
+                <div *ngFor="let member of ticket.members; let i = index">
+                  {{member}}
+                </div>
+
+                <button class="m-3 btn btn-sm" (click)="ticketPreviousStep(ticket)">
+                  Previous Step
+                </button>
+
+                <button class="m-3 btn btn-sm btn-danger" (click)="deleteTicket(ticket)">
+                  Delete ticket
+                </button>
+                <a class="badge" routerLink="/ticket/{{ ticket._id }}">
+                  Edit
+                </a>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>

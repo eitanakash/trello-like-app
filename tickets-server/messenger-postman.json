@@ -1,0 +1,657 @@
+{
+	"info": {
+		"_postman_id": "fb25e0b8-8958-491d-89ec-e59c58ffd78c",
+		"name": "messenger-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "post signup - user 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"en1@gmail.com\",\n    \"password\": \"$%fgssd67\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host_var}}:3000/user/signup",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post signup - user 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"en2@gmail.com\",\n    \"password\": \"$%fgssd67\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host_var}}:3000/user/signup",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post login - 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"en1@gmail.com\",\n    \"password\": \"$%fgssd67\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host_var}}:3000/user/login",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post login - 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"en2@gmail.com\",\n    \"password\": \"$%fgssd67\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host_var}}:3000/user/login",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "write message -  1 => 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token_user1}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"receiver\": \"en1@gmail.com\",\n    \"message\": \"msg test 2\",\n    \"subject\": \"subject 1 => 2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host_var}}:3000/message/write",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"write"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "write message -  2 => 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token_user2}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"receiver\": \"en1@gmail.com\",\n    \"message\": \"message 1\",\n    \"subject\": \"subject user 2 => 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host_var}}:3000/message/write",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"write"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read one messge - 1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token_user1}}"
+					}
+				],
+				"url": {
+					"raw": "http://{{host_var}}:3000/message/read",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"read"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read one messge - 2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token_user2}}"
+					}
+				],
+				"url": {
+					"raw": "http://{{host_var}}:3000/message/read",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"read"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all messges 1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token_user1}}"
+					}
+				],
+				"url": {
+					"raw": "http://{{host_var}}:3000/message/all",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"all"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all messges 2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token_user2}}"
+					}
+				],
+				"url": {
+					"raw": "http://{{host_var}}:3000/message/all",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"all"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all unread msgs 1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token_user1}}"
+					}
+				],
+				"url": {
+					"raw": "http://{{host_var}}:3000/message/all-unread",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"all-unread"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all unread msgs 2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token_user2}}"
+					}
+				],
+				"url": {
+					"raw": "http://{{host_var}}:3000/message/all-unread",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"all-unread"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete mesage with id 1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token_user1}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{host_var}}:3000/message/remove/5f00f58c3c4aa2408a599eb3",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"remove",
+						"5f00f58c3c4aa2408a599eb3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post signup - user 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"en3@gmail.com\",\n    \"password\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host_var}}:3000/user/signup",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post login - 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"en3@gmail.com\",\n    \"password\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host_var}}:3000/user/login",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "write message - 3 => 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token_user3}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"receiver\": \"en1@gmail.com\",\n    \"message\": \"msg test 7\",\n    \"subject\": \"subject 3 => 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host_var}}:3000/message/write",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"write"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read one messge - 3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token_user3}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{host_var}}:3000/message/read",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"read"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all messges 3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token_user3}}"
+					}
+				],
+				"url": {
+					"raw": "http://{{host_var}}:3000/message/all",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"all"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all unread msgs 3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token_user3}}"
+					}
+				],
+				"url": {
+					"raw": "http://{{host_var}}:3000/message/all-unread",
+					"protocol": "http",
+					"host": [
+						"{{host_var}}"
+					],
+					"port": "3000",
+					"path": [
+						"message",
+						"all-unread"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e2a4a237-6e72-4f04-9409-25f792965774",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "70263d0d-daee-4b6e-896a-577b830ec8e1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "3d647551-b171-4739-993c-ce3cfab662f1",
+			"key": "host_var",
+			"value": "localhost"
+		},
+		{
+			"id": "4f64a16d-bde0-41c6-ab13-e344599283ca",
+			"key": "token_user1",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVuMUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjAxOGRhMTBmZWVmODFlNTI0MmI4N2YiLCJpYXQiOjE1OTM5Mzc5ODAsImV4cCI6MTU5NDA2NzU4MH0.4uci58PvxtsXpipSg5yVqLMS9gZLK49StFwOd1WIjuw"
+		},
+		{
+			"id": "9eac3eab-64a1-4640-be10-8e395bdf7930",
+			"key": "token_user2",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVuMkBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjAxOTIzOGY4NDBiYTFlYTY1NjViNDgiLCJpYXQiOjE1OTM5Mzg0OTgsImV4cCI6MTU5NDA2ODA5OH0.j9UgRmJFscH68Vhg_stVQR0WVTDfurZif__cHwBj4rY"
+		},
+		{
+			"id": "4fcb86fd-c698-407d-bd78-d98c08aa857c",
+			"key": "token_user3",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVuM0BnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjAxOTI1ZGY4NDBiYTFlYTY1NjViNDkiLCJpYXQiOjE1OTM5Mzg1MjksImV4cCI6MTU5NDA2ODEyOX0._waf-G1yZfbJdwkMr6bnbhq4u1M5OsTSXqJzHITl3eQ"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
